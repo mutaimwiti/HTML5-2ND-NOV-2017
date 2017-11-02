@@ -56,7 +56,13 @@
             </td>
             <td style="background-color:#f0f0f0; width:80%; vertical-align:top;">
                 <h2 style="font-size:16px; margin:0px;">Drag and drop API</h2>
-
+                <div>
+                    <p>Drag Mwiti's image into the rectangle:</p>
+                    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"
+                         style="width: 330px;height: 330px; padding: 10px;border: 1px solid #aaaaaa;"></div>
+                    <br>
+                    <img id="drag1" src="mwiti.jpeg" draggable="true" ondragstart="drag(event)" width="328" height="328">
+                </div>
             </td>
         </tr>
         <!--Footer area !-->
@@ -73,6 +79,20 @@
         context.beginPath();
         context.arc(280,155,100,0,2*Math.PI);
         context.stroke();
+        //functions for drag and dropping image
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            event.target.appendChild(document.getElementById(data));
+        }
     </script>
     </body>
 </html>
