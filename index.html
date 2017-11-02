@@ -19,7 +19,11 @@
             </td>
             <td style="background-color:#f0f0f0; width:80%; vertical-align:top;">
                 <h2 style="font-size:16px; margin:0px;">A circle drawn on a canvas</h2>
-
+                <div>
+                    <canvas id="circleCanvas" width="560" height="315" style="border:1px solid #d3d3d3;">
+                        Your browser does not support the HTML5 canvas tag.
+                    </canvas>
+                </div>
             </td>
         </tr>
         <!--Multimedia area !-->
@@ -59,5 +63,13 @@
             </td>
         </tr>
     </table>
+    <script>
+        //drawing a circle on a canvas
+        var canvas = document.getElementById("circleCanvas");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+        context.arc(280,155,100,0,2*Math.PI);
+        context.stroke();
+    </script>
     </body>
 </html>
